@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>se.lnu.advsd.meysam</groupId>
-    <artifactId>ActivityCalendar</artifactId>
+    <artifactId>ActivityCalendarApi</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>An API that extends the Google Calendar API to add the possibility to
         categorize events into different activities</description>
