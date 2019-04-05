@@ -18,7 +18,12 @@ public class Activity implements Serializable {
     Integer spentBudget = 0;
     Set<String> eventsIds = new HashSet<>();     //eventId of each event is stored
 
-    public Activity(String name, Integer budget) {
+    /**
+     * @throws IllegalArgumentException if budget is negative.
+     */
+    public Activity(String name, Integer budget) throws IllegalArgumentException {
+        if (budget<0)
+            throw new IllegalArgumentException("Budget cannot be a negative number!");
         this.name = name;
         this.budget = budget;
     }
@@ -40,7 +45,10 @@ public class Activity implements Serializable {
         return budget;
     }
 
-    public void setBudget(Integer budget) {
+    /**
+     * @throws IllegalArgumentException if budget is negative.
+     */
+    public void setBudget(Integer budget) throws IllegalArgumentException {
         if (budget<0)
             throw new IllegalArgumentException("Budget cannot be a negative number!");
         this.budget = budget;
@@ -50,10 +58,14 @@ public class Activity implements Serializable {
         return spentBudget;
     }
 
+    /**
+     * If budget becomes less than zero after updating, it is set to zero.
+     */
     public void increaseSpentBudgetBy(Integer increaseBy) {
-        if (increaseBy<0)
-            throw new IllegalArgumentException("Spent budget must be a positive integer!");
-        this.spentBudget += increaseBy;
+        Integer result = spentBudget+increaseBy;
+        if (result<0)
+            result = 0;
+        this.spentBudget = result;
     }
 
     public Set<String> getEventsIds() {

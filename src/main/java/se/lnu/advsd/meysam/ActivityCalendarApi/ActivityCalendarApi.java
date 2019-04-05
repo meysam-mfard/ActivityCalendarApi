@@ -22,8 +22,9 @@ public interface ActivityCalendarApi {
      * @param calendarId The Google's calendar id.
      * @param activityName
      * @param activityBudget
+     * @throws IllegalArgumentException if activityBudget is negative.
      */
-    void addActivity(String calendarId, String activityName, Integer activityBudget);
+    void addActivity(String calendarId, String activityName, Integer activityBudget) throws IllegalArgumentException;
 
     /**
      * Adds new activity to a calendar.
@@ -45,8 +46,9 @@ public interface ActivityCalendarApi {
      * @param calendarId The Google's calendar id.
      * @param activityName
      * @param activityBudget
+     * @throws IllegalArgumentException if activityBudget is negative.
      */
-    void setBudget(String calendarId, String activityName, Integer activityBudget);
+    void setBudget(String calendarId, String activityName, Integer activityBudget) throws IllegalArgumentException;
 
     /**
      * Adds the "event" to the calendar, associates it with the activity named "activityName" and

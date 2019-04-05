@@ -105,6 +105,7 @@ class ActivityCalendarApiImplTest {
                 activityCalendarApi.setBudget(offlineCalendarId, "dummy_activity_name_345", 44));
 
         assertThrows(IllegalArgumentException.class, () -> activity1.setBudget(-2));
+        assertThrows(IllegalArgumentException.class, () -> activity1 = new Activity("act1", -2));
     }
 
     /*@Test
